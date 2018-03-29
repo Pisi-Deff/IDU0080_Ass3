@@ -1,6 +1,6 @@
 package ee.ttu.idu0080.raamatupood.client.shop;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.jms.Connection;
@@ -70,7 +70,7 @@ public class ShopProducer {
 			ObjectMessage objMsg = session.createObjectMessage(orders.get(i));
 			producer.send(objMsg);
 			
-			TextMessage msg = session.createTextMessage("msg " + i + " sent at " + LocalDate.now().toString());
+			TextMessage msg = session.createTextMessage("msg " + i + " sent at " + LocalDateTime.now().toString());
 			LOG.debug(msg.getText());
 			producer.send(msg);
 			
